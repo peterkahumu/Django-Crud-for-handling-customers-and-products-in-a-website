@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add product</title>
+</head>
+<body>
+    <main>
+        <h1>Add new Product</h1>
+
+        <form action="add_product/" method="post">
+            {% csrf_token %}
+            <label for="name">Product Name</label><br>
+            <input type="text" name="name" id="name" required><br><br>
+
+            <label for="description">Description</label> <br>
+            <textarea name="description" id="description" rows = 5 required></textarea><br><br>
+
+            <label for="price">Price</label><br>
+            <input type="number" name="price" id="price" required><br><br>
+
+            <label for="availability">Availability:  </label><br>
+            <input type="radio" name="availability" id="True" value="True" checked><br>
+            <input type="radio" name="availability" id="False" value="False" > <br><br>
+
+            <input type="submit" name="submit" id="submit" value="Add product">
+        </form>
+    </main>
+</body>
+</html>

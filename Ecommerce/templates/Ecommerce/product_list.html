@@ -8,17 +8,40 @@
 </head>
 
 <body>
+    <section id="messages" class="messages" style="color: green;">
+        {% if messages %}
+        <p>
+            {% for message in messages %}
+            <li {% if messages.tags %} class = {{messages.tags}} {% endif %}>{{message}}</li>
+            {% endfor %}
+        </p>
+        {% endif %}
+    </section>
+
     <h1>Products</h1>
-    <ul>
-        {% for product in products %} <!--start a for loop -->
-        <li>
-            <h2>Name: {{product.name}} </h2>
-            <p> Description {{product.description}}</p>
-            <p> Price: {{product.price}}</p>
-            <img src="{{product.image.url}}" alt="{{product.name}} Photo">
-        </li>
-        {% endfor %} <!--End the for loop.-->
-    </ul>
+    <table border = 1 cellspacing = 0 cellpadding = 5>
+        <th>Name</th> <th>Description</th> <th>Price (KSH)</th><th>Availability</th> <th>Actions</th> <th>Details</th>
+        {% for product in products %}
+         <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>
+                {% if product.availability %} Yes {% else %} No {% endif %}
+
+            </td>
+            <td><a href="update/{{product.id}}"><button>Update Product</button></a> || <a href="delete_product/{{product.pk}}"><button>Delete Product</button></a></td>
+            <td><a href="../{{product.id}}"><button>View Product</button></a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td   colspan="4">No Product is availabe at the moment.</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br> <br>
+
+    <a href="addp/"><button>Add Product</button></a>
 </body>
 
 </html>
