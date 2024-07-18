@@ -2,8 +2,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %} <!-- load the static files -->
     <meta charset="UTF-8">
     <title>Customer Detail</title>
+    
+    
+     <!-- add the css files -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+ 
+     <!-- add the js files -->
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
     <div class="customer_detail">
@@ -13,6 +28,6 @@
         <p><strong>Address:</strong> {{ customer.address }}</p>
         <p><strong>Joined at:</strong> {{ customer.created_when }}</p>
     </div>
-    <a href="../" class="back-list ">Back to Customer List</a>
+    <a href="../" class="back-list "><button>Back to Customer List</button></a>
 </body>
 </html>
